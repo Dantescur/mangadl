@@ -1,0 +1,26 @@
+{
+  "name": "mangadl",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "bin": {
+    "mangadl": "./src/cli.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "cheerio": "1.0.0-rc.12",
+    "commander": "^11.1.0",
+    "inquirer": "^9.2.12",
+    "pdf-lib": "^1.17.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
