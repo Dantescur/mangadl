@@ -12,13 +12,23 @@ export default function registerSearchCommand(program) {
       const html = await axiosWrapper.search(mangaName);
       const $ = cheerioWrapper.load(html);
 
-      const manngaList = [];
-      $(".text-truncate").each((index, element) => {
-        manngaList.push($(element).text());
+      const mangaList = [];
+      $(".element").each((index, element) => {
+        const title = $(element).find(".text-truncate").text();
+        const score = $(element).find(".score").text().trim();
+        const genre = $(element).find(".demography").text().trim();
+        const url = $(element).find("a").attr("href");
+
+        mangaList.push({
+          title: title,
+          score: score,
+          genre: genre,
+          url: url,
+        });
       });
 
-      const choices = manngaList.map((title, index) => ({
-        name: title,
+      const choices = mangaList.map((manga, index) => ({
+        name: `${manga.title} - Score: ${manga.score} - Genre: ${manga.genre}`,
         value: index,
       }));
 
@@ -33,8 +43,10 @@ export default function registerSearchCommand(program) {
         ])
         .then((answers) => {
           const selectedIndex = answers.selectedManga;
-          const selectedMangaTitle = manngaList[selectedIndex];
-          console.log(`You selected ${selectedMangaTitle}`);
+          const selectedManga = mangaList[selectedIndex];
+          console.log(
+            `You selected ${selectedManga.title} with url ${selectedManga.url}`,
+          );
         });
     });
 }
