@@ -11,3 +11,9 @@ test("axiosWrapper.downloadByUrl should download content by URL", async () => {
   );
   expect(downloadResult).toBeDefined();
 });
+
+test("axiosWrapper.search should handle empty search query", async () => {
+  await expect(axiosWrapper.search("")).rejects.toThrow(
+    "Search query cannot be empty",
+  );
+});

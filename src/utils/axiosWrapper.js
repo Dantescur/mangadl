@@ -3,10 +3,14 @@ import axios from "axios";
 const axiosWrapper = {
   async search(mangaName, page = 1) {
     try {
-      const response = await axios.get(
-        `https://visortmo.com/library?_pg=${page}&title=${mangaName}`,
-      );
-      return response.data;
+      if (mangaName !== "") {
+        const response = await axios.get(
+          `https://visortmo.com/library?_pg=${page}&title=${mangaName}`,
+        );
+        return response.data;
+      } else {
+        throw new Error("Search query cannot be empty");
+      }
     } catch (error) {
       throw new Error(`Axios error: ${error.message}`);
     }

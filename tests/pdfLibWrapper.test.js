@@ -20,3 +20,11 @@ test("pdfLibWrapper.addPage should add a page to the PDF document", async () => 
   const page = await pdfLibWrapper.addPage(document, 600, 800);
   expect(page).toBeDefined();
 });
+
+test("pdfLibWrapper.embedImage should throw an error for invalid image data", async () => {
+  const invalidImageBytes = Buffer.from("not-a-valid-image", "base64");
+  const document = await pdfLibWrapper.create();
+  await expect(
+    pdfLibWrapper.embedImage(document, invalidImageBytes),
+  ).rejects.toThrow("Invalid image data");
+});

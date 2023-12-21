@@ -5,14 +5,16 @@ const pdfLibWrapper = {
     try {
       return await PDFDocument.create();
     } catch (error) {
-      throw new Error(`PDF-lib error during document creation: ${error.message}`);
+      throw new Error(
+        `PDF-lib error during document creation: ${error.message}`,
+      );
     }
   },
   async embedImage(document, imageBytes) {
     try {
       return await document.embedPng(imageBytes);
     } catch (error) {
-      throw new Error(`PDF-lib error during image embeding: ${error.message}`);
+      throw new Error("Invalid image data");
     }
   },
   async addPage(document, width, height) {
@@ -21,7 +23,7 @@ const pdfLibWrapper = {
     } catch (error) {
       throw new Error(`PDF-lib error during page addition: ${error.message}`);
     }
-  }
-}
+  },
+};
 
 export default pdfLibWrapper;
