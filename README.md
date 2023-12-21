@@ -30,6 +30,7 @@ Follow the prompts to search for manga and select chapters to download.
 
 - `axios`: For making HTTP requests.
 - `cheerio`: For parsing HTML data.
+- `puppeteer`: For web scrapping techniques.
 - `commander`: For parsing command-line options.
 - `inquirer`: For interactive command-line user interfaces.
 - `pdf-lib`: For creating PDF files from downloaded chapters.
