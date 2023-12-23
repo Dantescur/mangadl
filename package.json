@@ -18,7 +18,8 @@
     "cheerio": "1.0.0-rc.12",
     "commander": "^11.1.0",
     "inquirer": "^9.2.12",
-    "pdf-lib": "^1.17.1"
+    "pdf-lib": "^1.17.1",
+    "puppeteer": "^21.6.1"
   },
   "devDependencies": {
     "jest": "^29.7.0"

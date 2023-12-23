@@ -4,8 +4,9 @@ const axiosWrapper = {
   async search(mangaName, page = 1) {
     try {
       if (mangaName !== "") {
+        const encodedMangaName = encodeURIComponent(mangaName);
         const response = await axios.get(
-          `https://visortmo.com/library?_pg=${page}&title=${mangaName}`,
+          `https://visortmo.com/library?_pg=${page}&title=${encodedMangaName}`,
         );
         return response.data;
       } else {
