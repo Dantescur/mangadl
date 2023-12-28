@@ -19,9 +19,13 @@
     "commander": "^11.1.0",
     "inquirer": "^9.2.12",
     "pdf-lib": "^1.17.1",
-    "puppeteer": "^21.6.1"
+    "puppeteer": "^21.6.1",
+    "puppeteer-core": "^21.6.1"
   },
   "devDependencies": {
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
     "jest": "^29.7.0"
   }
 }
